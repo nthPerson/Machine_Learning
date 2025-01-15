@@ -1,4 +1,4 @@
-# Utility functions used for HA4
+# Utility functions used for Neural_Networks
 
 import numpy as np
 import os
@@ -12,16 +12,10 @@ def load_data():
             sys.stderr.flush()
             sys.exit(1)
 
-    # X_train = np.load(open('X_train.npy', 'rb'))
-    # y_train = np.load(open('y_train.npy', 'rb'))
-    # X_test = np.load(open('X_test.npy', 'rb'))
-    # y_test = np.load(open('y_test.npy', 'rb'))
-
-    # local setup for use in PyCharm
-    X_train = np.load(open(r'C:\Users\rober\OneDrive\Side Projects\Programming\Machine Learning\Neural_Networks\X_train.npy', 'rb'))
-    y_train = np.load(open(r'C:\Users\rober\OneDrive\Side Projects\Programming\Machine Learning\Neural_Networks\y_train.npy', 'rb'))
-    X_test = np.load(open(r'C:\Users\rober\OneDrive\Side Projects\Programming\Machine Learning\Neural_Networks\X_test.npy', 'rb'))
-    y_test = np.load(open(r'C:\Users\rober\OneDrive\Side Projects\Programming\Machine Learning\Neural_Networks\y_test.npy', 'rb'))
+    X_train = np.load(open('X_train.npy', 'rb'))
+    y_train = np.load(open('y_train.npy', 'rb'))
+    X_test = np.load(open('X_test.npy', 'rb'))
+    y_test = np.load(open('y_test.npy', 'rb'))
 
     return X_train, y_train, X_test, y_test
 
@@ -41,8 +35,7 @@ def forwardprop_testcase():
        [ 0.00502881, -0.01245288, -0.01057952],
        [-0.00909008,  0.00551454,  0.02292208]])
      
-   
-    
+
     b1 = np.array([[0.,0.,0.,0.]])
     
     W2 = np.array([[ 0.00041539, -0.01117925,  0.00539058, -0.0059616]])
@@ -52,8 +45,6 @@ def forwardprop_testcase():
     
     params = {'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
 
-    
-    
     return X, params
 
 
@@ -63,8 +54,6 @@ def backprop_testcase():
     y = np.random.randint(2, size=(5,1))
     X, params = forwardprop_testcase()
     
-    
-
     z1 = np.array([[ 0.04392812,  0.01215452,  0.02120482, -0.04548798],
        [ 0.02582645,  0.06615439,  0.03948733, -0.04409477],
        [ 0.02539642,  0.03948734,  0.02922894, -0.03568889],
@@ -85,7 +74,6 @@ def backprop_testcase():
 
 def update_params_testcase():
     _, params = forwardprop_testcase()
-    
 
     dW2 = np.array([[ -0.0071034,  -0.01212525, -0.00747344,  0.01038535]])
     db2 = np.array([[0.099983927]])
